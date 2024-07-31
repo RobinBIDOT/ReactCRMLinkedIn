@@ -15,9 +15,9 @@ const Single = (props) => {
                             <blockquote><h5>{props.item.notes}</h5></blockquote>
                         </div>
                     </div>
-                </div>
-                <div className="card-action">
-                    <button className="waves-effect waves-light btn red darken-4">Supprimer</button>
+                    <div className="card-action">
+                        <button className="waves-effect waves-light btn red darken-4" onClick={() => {props.deleteData(props.item.id)}}>Supprimer</button>
+                    </div>
                 </div>
             </div>
         </li>
