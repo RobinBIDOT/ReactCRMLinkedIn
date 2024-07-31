@@ -1,9 +1,10 @@
 import './App.css';
 import React, { Component } from 'react';
-import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
-import db from '../firebase';
+import { collection, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
+import { db } from './firebase';
 import Grid from './Grid';
 import Form from './Form';
+import Footer from './Footer';
 
 class App extends Component {
     constructor(props) {
@@ -12,23 +13,23 @@ class App extends Component {
         this.deleteData = this.deleteData.bind(this);
         this.state = {
             contacts: []
-        }
-    }
-
-    async updateData() {
-        const contacts = await getDocs(collection(db, "contacts"));
-        const contactsFinal = contacts.docs.map(doc => ({...doc.data(), id: doc.id}));
-        this.setState({
-            contacts: contactsFinal
-        })
-    }
-
-    async deleteData(docId) {
-        await deleteDoc(doc(db, "contacts", docId));
+        };
     }
 
     componentDidMount() {
         this.updateData();
+    }
+
+    updateData() {
+        const contactsCollection = collection(db, "contacts");
+        onSnapshot(contactsCollection, (snapshot) => {
+            const contacts = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+            this.setState({ contacts });
+        });
+    }
+
+    async deleteData(docId) {
+        await deleteDoc(doc(db, "contacts", docId));
     }
 
     render() {
@@ -43,8 +44,9 @@ class App extends Component {
                 </div>
                 <div>
                     <Form />
-                    <Grid items={this.state.contacts} deleteData={this.deleteData}/>
+                    <Grid items={this.state.contacts} deleteData={this.deleteData} />
                 </div>
+                <Footer />
             </div>
         );
     }
