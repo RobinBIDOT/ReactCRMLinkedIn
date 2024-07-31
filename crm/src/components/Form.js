@@ -33,8 +33,8 @@ class Form extends Component {
                     </div>
                     <div className='row'>
                         <div className='input-field col s6'>
-                            <input id='email' type='text' className='validate'/>
-                            <label htmlFor='email'>Email</label>
+                                <input id='email' type='text' className='validate'/>
+                                <label htmlFor='email'>Email</label>
                         </div>
                         <div className='input-field col s6'>
                             <input id='compagnie' type='text' className='validate'/>
@@ -43,8 +43,8 @@ class Form extends Component {
                     </div>
                     <div className='row'>
                         <div className='input-field col s6'>
-                            <input id='notes' type='text' className='validate'/>
-                            <label htmlFor='notes'>Notes</label>
+                                <input id='notes' type='text' className='validate'/>
+                                <label htmlFor='notes'>Notes</label>
                         </div>
                         <div className='input-field col s4'>
                             <button className='btn waves-effect waves-light' type='submit' name='action'>Ajouter</button>

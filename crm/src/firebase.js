@@ -1,17 +1,17 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, onSnapshot } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID,
-    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+    apiKey: "AIzaSyD0zQvw146iOie4OFUB22r4pGQJzi3zF1w",
+    authDomain: "crm-linkedin-7194f.firebaseapp.com",
+    projectId: "crm-linkedin-7194f",
+    storageBucket: "crm-linkedin-7194f.appspot.com",
+    messagingSenderId: "963744577751",
+    appId: "1:963744577751:web:8283c09c0b608d5e1e9892",
+    measurementId: "G-CXX483B464"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export { db, collection, onSnapshot };
+export default db;
